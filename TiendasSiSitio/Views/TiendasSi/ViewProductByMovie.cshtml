@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TiendasSiSitio.Models.Producto>
+
+@{
+    ViewData["Title"] = "ViewProductByMovie";
+}
+
+<center>
+    <h1>LISTA DE PELÍCULAS</h1>
+</center>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        Nombre Producto
+                    </th>
+                    <th>
+                        Detalle Producto
+                    </th>
+                    <th>
+                        Tipo Producto
+                    </th>
+                    <th>
+                        Estado Producto
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                  
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombreProducto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detalleProducto)
+                    </td>
+                    <td>
+
+                        @if (item.idTipoProducto == 1)
+                        {
+                            <span>Película</span>
+                        }
+                        else if (item.idTipoProducto == 2)
+                        {
+                            <span>Serie</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estadoProducto)
+                    </td>
+
+                </tr>
+                
+                }
+            </tbody>
+        </table>

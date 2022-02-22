@@ -1,0 +1,46 @@
+﻿@model TiendasSiSitio.Models.Producto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(Producto => Producto.id)
+            
+            <div class="form-group">
+                <label asp-for="nombreProducto" class="control-label">Nombre Producto</label>
+                <input asp-for="nombreProducto" class="form-control" />
+                <span asp-validation-for="nombreProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="detalleProducto" class="control-label">Detalle Producto</label>
+                <input asp-for="detalleProducto" class="form-control" />
+                <span asp-validation-for="detalleProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idTipoProducto" class="control-label">Id Tipo Producto</label>
+                <input asp-for="idTipoProducto" class="form-control" />
+                <span asp-validation-for="idTipoProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="estadoProducto" /> Estado Producto
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
